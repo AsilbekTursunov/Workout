@@ -20,7 +20,7 @@ const Navbar = () => {
             <a
               href={item.path}
               key={index}
-              className='text-slate-800 font-normal dark:text-white hover:underline'
+              className='text-slate-800 font-normal dark:text-white hover:underline max-md:hidden'
             >
               {item.title}
             </a>
@@ -34,7 +34,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to={'/auth'}>
+              <Link to={'/auth'} className='max-md:hidden'>
                 <Button variant={'secondary'}>Join Free</Button>
               </Link>
             </>

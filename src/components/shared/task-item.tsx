@@ -103,45 +103,47 @@ const TaskItem = ({ task, setIsEditing, onDelete, refetch }: Props) => {
   return (
     <Card className='w-full p-4 shadow-md  flex flex-col relative'>
       {isLoading && <Loader />}
-      <div className='grid grid-cols-4 items-center'>
-        <div className='flex gap-1 items-center col-span-2'>
+      <div className='flex flex-col md:flex-row items-center'>
+        <div className='flex gap-1 items-center col-span-2 self-start md:flex-1'>
           <MdOutlineTaskAlt className='text-blue-500' />
           <span className='capitalize'>{task.title}</span>
         </div>
-        <div className='flex gap-1 items-center'>
-          <HiStatusOnline
-            className={cn(
-              task.status == 'unstarted' && 'text-blue-500',
-              task.status == 'in_progress' && 'text-green-500',
-              task.status == 'paused' && 'text-red-500'
-            )}
-          />
-          <span className='capitalize text-sm'>{task.status}</span>
-        </div>
-        <div className='flex gap-1 items-center justify-self-end'>
-          {renderBtns()}
-          <Button
-            type='button'
-            variant={'secondary'}
-            size={'icon'}
-            className='w-8 h-8'
-            onClick={setIsEditing}
-          >
-            <Edit2 className='w-5 h-5' />
-          </Button>
-          <Button
-            type='button'
-            variant={'destructive'}
-            size={'icon'}
-            className='w-8 h-8'
-            onClick={onDelete}
-          >
-            <Trash className='w-5 h-5' />
-          </Button>
+        <div className='flex justify-between max-md:w-full md:justify-end'>
+          <div className='flex gap-1 items-center md:mr-56'>
+            <HiStatusOnline
+              className={cn(
+                task.status == 'unstarted' && 'text-blue-500',
+                task.status == 'in_progress' && 'text-green-500',
+                task.status == 'paused' && 'text-red-500'
+              )}
+            />
+            <span className='capitalize text-sm'>{task.status}</span>
+          </div>
+          <div className='flex gap-1 items-center justify-self-end'>
+            {renderBtns()}
+            <Button
+              type='button'
+              variant={'secondary'}
+              size={'icon'}
+              className='w-8 h-8'
+              onClick={setIsEditing}
+            >
+              <Edit2 className='w-5 h-5' />
+            </Button>
+            <Button
+              type='button'
+              variant={'destructive'}
+              size={'icon'}
+              className='w-8 h-8'
+              onClick={onDelete}
+            >
+              <Trash className='w-5 h-5' />
+            </Button>
+          </div>
         </div>
       </div>
-      <ul className='flex justify-between items-center w-full'>
-        <li>
+      <ul className='flex md:justify-between flex-col md:flex-row   items-center w-full'>
+        <li className='self-start'>
           <span className='text-sm px-1 text-muted-foreground'>Started time</span>
           <span className='text-sm px-1 text-muted-foreground'>
             {moment(task.startTime).format('hh:mm:ss a')}
@@ -149,13 +151,13 @@ const TaskItem = ({ task, setIsEditing, onDelete, refetch }: Props) => {
         </li>
         {task.status == 'paused' && (
           <>
-            <li>
+            <li className='self-start'>
               <span className='text-sm px-1 text-muted-foreground'>End time</span>
               <span className='text-sm px-1 text-muted-foreground'>
                 {moment(task.endTime).format('hh:mm:ss a')}
               </span>
             </li>
-            <li>
+            <li className='self-start'>
               <span className='text-sm px-1 text-muted-foreground'>Total time</span>
               <span className='text-sm px-1 text-muted-foreground'>
                 {moment(+task.endTime - +task.startTime).format('mm:ss')}

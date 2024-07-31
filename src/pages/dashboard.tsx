@@ -87,7 +87,7 @@ const Dashboard = () => {
     <>
       <div className='h-screen container mx-auto flex items-center mt-20'>
         <div className='grid grid-cols-1  w-full gap-8 items-center'>
-          <div className='flex flex-col space-y-3 w-3/4 mx-auto'>
+          <div className='flex flex-col space-y-3 w-full lg:w-3/4 lg:mx-auto'>
             <div className='w-full p-4 rounded-md flex justify-between bg-gradient-to-t from-background to-secondary'>
               <div className='text-2xl font-bold'>Trainings</div>
               <Button size={'icon'} onClick={() => setOpen(true)}>
