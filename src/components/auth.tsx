@@ -1,8 +1,7 @@
 import { useAuthState } from '@/store/auth.store'
 import { Card } from './ui/card'
 import Register from './auth/register'
-import Login from './auth/login'
-import Socials from './auth/social'
+import Login from './auth/login' 
 
 const Auth = () => {
   const { authState } = useAuthState()
