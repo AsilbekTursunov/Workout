@@ -7,7 +7,6 @@ import UserBox from './user-box'
 
 const Navbar = () => {
   const { user } = useUserStore()
- 
 
   return (
     <div className='w-full h-[70px] border-b dark:border-slate-600 fixed inset-0 z-10 bg-background'>
@@ -18,7 +17,7 @@ const Navbar = () => {
         <div className='flex dark:text-white items-center gap-4'>
           {navLinks.map((item, index) => (
             <a
-              href={item.path}
+              href={item.path == 'home' ? '/' : user ? '/dashboard' : '/auth'}
               key={index}
               className='text-slate-800 font-normal dark:text-white hover:underline max-md:hidden'
             >

@@ -36,10 +36,10 @@ export const prograss = [
 export const navLinks = [
   {
     title: 'Home',
-    path: '#home',
+    path: 'home',
   },
   {
     title: 'Programs',
-    path: '#programs',
+    path: 'dashboard',
   },
 ]
